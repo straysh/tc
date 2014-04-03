@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>multi dynamic fancybox</title>
+<style>
+#f1,#f2{width:950px;margin:10px;border:1px solid red;}
+#f1 img,#f2 img{width:300px;display:inline-block;}
+</style>
+<link rel="stylesheet" href="/js/fancyBox-v2.1.5/jquery.fancybox.css" />
+<script src="/js/jquery-1.9.0.min.js"></script>
+<script src="/js/fancyBox-v2.1.5/jquery.fancybox.js"></script>
+</head>
+<body>
+<div id="f1">
+	<a class="fancybox" rel="test-group" href="http://static.yum-my.com.au/Public/images/merchant/sample_pic01.png"><img src="http://static.yum-my.com.au/Public/images/merchant/sample_pic01.png" alt="" /></a>
+	<a class="fancybox" rel="test-group" href="http://static.yum-my.com.au/Public/images/merchant/sample_pic02.png"><img src="http://static.yum-my.com.au/Public/images/merchant/sample_pic02.png" alt="" /></a>
+	<a class="fancybox" rel="test-group" href="http://static.yum-my.com.au/Public/images/merchant/sample_pic03.png"><img src="http://static.yum-my.com.au/Public/images/merchant/sample_pic03.png" alt="" /></a>
+</div>
+<div id="f2">
+	<a class="fancybox" rel="test-group2" href="http://static.yum-my.com.au/pic/org/0/42.jpg"><img src="http://static.yum-my.com.au/pic/org/0/42.jpg" alt="" /></a>
+	<a class="fancybox" rel="test-group2" href="http://static.yum-my.com.au/pic/org/0/43.jpg"><img src="http://static.yum-my.com.au/pic/org/0/43.jpg" alt="" /></a>
+	<a class="fancybox" rel="test-group2" href="http://static.yum-my.com.au/pic/org/0/44.jpg"><img src="http://static.yum-my.com.au/pic/org/0/44.jpg" alt="" /></a>
+</div>
+<script>
+$().ready(function(){
+	$('a.fancybox').fancybox({
+		prevEffect		: 'none',
+		nextEffect		: 'none',
+		loop			: false,
+	});
+});
+/* function myFancybox($container)
+{
+	$container.on('focusin', function(){
+		$(this).find('a.fancybox_img').fancybox();
+	});
+} */
+</script>
+</body>
+</html>

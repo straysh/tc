@@ -1,0 +1,63 @@
+<script src="./source/jquery-1.9.0.min.js"></script>
+<script src="./source/underscore.js"></script>
+<script src="./source/backbone.js"></script>
+
+<script>
+	// Backbone.emulateHTTP = true 
+	// Backbone.emulateJSON = true;
+	var UserModel = Backbone.Model.extend({
+		urlRoot: '/backbone/server/user.php',
+		default: {
+			name: '',
+			email: '',
+		},
+		// sync: function(method, model, options){
+		// 	if(method=='create'){
+		// 		return cbk(model.attributes);
+		// 	}else if(method=="read"){
+		// 		console.log(cbk(model.attributes));
+		// 		return;
+		// 	}
+	 //        function cbk(_data){
+	 //        	return $.ajax({
+		//             type:         'POST',
+		//             contentType:  'application/x-www-form-urlencoded',
+		//             beforeSend:   function(xhr) {
+		//                 xhr.setRequestHeader('X-HTTP-Method-Override', 'POST');
+		//             },
+		//             dataType:     'json',
+		//             url:          model.urlRoot,
+		//             data: _data,
+		//         });
+	 //        }
+	 //    }
+	});
+	// var user = new UserModel;
+	// var userDetails = {
+	// 	name: 'Thomas',
+	// 	email: 'thomasblablabla@gmail.com'
+	// };
+	// user.save(userDetails, {
+	// 	success: function(user){
+	// 		alert(user.toJSON());
+	// 	},
+	// });
+
+	// var user = new UserModel({id:1});
+	// user.fetch({
+	// 	success: function(response){
+	// 		console.log(response.toJSON());
+	// 	}
+	// });
+
+	var user = new UserModel({
+		id: 1,
+		name: 'Thomas',
+		email: 'thomasblablabla@gmail.com',
+	});
+	user.destroy({
+		success: function(response){
+			console.log('destroyed');
+		}
+	});
+</script>

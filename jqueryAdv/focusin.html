@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>focusin demo</title>
+    <style>
+        span {
+            display: none;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<textarea name="content" id="textarea" cols="30" rows="50"></textarea>
+<a href="#">11111111111111111</a>
+<p><input type="text"> <span>focusin fire</span></p>
+<p><input type="password"> <span>focusin fire</span></p>
+
+<script>
+/*    $('a').focus(function(){
+        alert(111111111111);
+    });
+    $( "p" ).focusin(function() {
+        $( this ).find( "span" ).css( "display", "inline" ).fadeOut( 1000 );
+    });*/
+
+$('#textarea').on('focusin', function(){
+    console.log(1);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/js/jquery-1.9.0.min.js"></script>
+<title>queue dequeue</title>
+<style>
+#animation{width:200px;height:200px;background:#ccc;}
+</style>
+</head>
+<body>
+<div id="animation" style="display:none;"></div>
+<script>
+$().ready(function(){
+	$('#animation').show('slow');
+	$('#animation').queue(function(){
+		$(this).animate({width: '+=400'}, 1000);
+		$(this).dequeue();
+	});
+});
+</script>
+</body>
+</html>

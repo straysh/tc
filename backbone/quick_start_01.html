@@ -1,0 +1,13 @@
+<script src="./source/jquery-1.9.0.min.js"></script>
+<script src="./source/underscore.js"></script>
+<script src="./source/backbone.js"></script>
+
+<div id="search_container"></div>
+<script>
+SearchView = Backbone.View.extend({
+	initialize: function(){
+		alert("Alerts suck.");
+	}
+});
+var search_view = new SearchView({el:$('#search_container')});
+</script>

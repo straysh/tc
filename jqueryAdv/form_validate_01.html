@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Form Validate 01</title>
+<script src="/js/jquery-1.9.0.min.js"></script>
+<script src="/js/modernizr.custom.27748.js"></script>
+<script src="/js/jquery.placeholder.js"></script>
+</head>
+<body>
+
+<form action="#" id="fDet">
+	<input type="text" name="userName" required placeholder="sample holder" />
+	<input type="password" name="password" required />
+	<input type="submit" value="send it" id="submit"/>
+</form>
+<script>
+$().ready(function(){
+	$('input[name="userName"]').placeholder();
+	
+	if(!Modernizr.input.required){
+		var $msg = $('<div id="reqMessage">Required Fields Missing</div>')
+		$msg.css({background:'yellow'}).hide();
+		$('body').append($msg);
+		
+	}
+	$('#fDet').on('click', '#submit', function(e){
+		alert(1);
+		console.log(1111);
+		return true;
+		$('input[required]').each(function(){
+			if($(this).val()===""){
+				$("#reqMessage").show();
+				$(this).css({border: '1px solid red'});
+				e.preventDefault();
+			}
+		});
+	});
+});
+</script>
+</body>
+</html>

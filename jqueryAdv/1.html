@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/js/jquery-1.9.0.min.js"></script>
+<script src="/js/modernizr.custom.27748.js"></script>
+<title>P1</title>
+<style>
+#test-div{width:200px; height:200px; background:#ccc;}
+</style>
+</head>
+<body>
+<div id="test-div"></div>
+<script>
+console.log(+'100px');
+$('#test-div').data('itemPrice', 1999);
+console.log($.parseJSON('{"oid":"1","otype":"8","oname":null,"return_login":"\/index.php\/index\/returnLogin?url=usercenter\/index\/id\/1","isguest":1,"isfollower":0}'));
+console.log($.now());
+
+var arr=['a','b','c'];
+var list={a:1,b:2,c:3};
+$.map(list, function(v, k){
+	console.log(k,v);
+});
+</script>
+</body>
+</html>

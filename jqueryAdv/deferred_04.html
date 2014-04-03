@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Deferred API learning</title>
+<script src="/js/jquery-1.9.0.min.js"></script>
+<style>
+#statusbar{display:none;}
+#statusbar ul,#statusbar li{margin:0;padding:0;}
+</style>
+</head>
+<body>
+<div id="statusbar"></div>
+<script>
+function updateStatus(){
+	return $.Deferred(function(){
+		var $update = $('<ul></ul>')
+		, $statusbar = $('#statusbar')
+		, _this = this
+		, html = [];
+		for(var i=0, test=20; i<test; i++){
+			html.push('<li>status update</li>');
+		}
+		html = html.join("\n");
+		$update.append(html);
+		$statusbar.append($update);
+		$statusbar.slideDown(1000, function(){
+			_this.reject({error: 'unknown'});
+		});
+	}).promise();
+}
+$(function(){
+	$.when(updateStatus())
+	.done(function(data){
+		console.log(data);
+	}).fail(function(error){
+		console.log(error);
+	});
+});
+
+/* $.when($.ajax({url:'/deferred.php', dataType:'json'}),
+		$.ajax({url:'/deferred2.php', dataType:'json'}))
+.done(function(r1, r2){
+	console.log(r1[0], r2[0]);
+}, function(r1, r2){
+	console.log(r1);
+}).fail(function(a, b, c){
+	console.log(c);
+}); */
+
+/* $.when($.ajax({url:'/deferred.php', dataType:'json'}),
+		$.ajax({url:'/deferred2.php', dataType:'json'}))
+.then(function(r1, r2){
+	console.log(r2);
+}); */
+
+/* $.when({code: 10000})
+.then(function(data){
+	console.log(data);
+}); */
+
+/* $.when($.ajax({url:'/deferred.php', dataType:'json'}))
+.then(function(data, textStatus, jqXHR){
+	console.log(data);
+}); */
+</script>
+</body>
+</html>
